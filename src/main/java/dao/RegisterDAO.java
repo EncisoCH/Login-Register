@@ -18,11 +18,10 @@ public class RegisterDAO {
 	    try (Connection connection = dbConexion.getConexion();
 	        // Step 2:Create a statement using connection object
 	        PreparedStatement ps = connection.prepareStatement(sql)) {
-	    	ps.setInt(1, 1);
-	    	ps.setString(2, us.getName());
-	    	ps.setString(3, us.getApellidos());
-	    	ps.setString(4, us.getEmail());
-	    	ps.setString(5, us.getPassword());
+	    	ps.setString(1, us.getName());
+	    	ps.setString(2, us.getApellidos());
+	    	ps.setString(3, us.getEmail());
+	    	ps.setString(4, us.getPassword());
 
 	        System.out.println(ps);
 	        // Step 3: Execute the query or update query
