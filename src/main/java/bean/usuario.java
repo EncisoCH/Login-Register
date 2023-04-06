@@ -7,6 +7,12 @@ public class usuario {
 	private String email;
 	private String password;
 	
+	public usuario(String name, String apellidos, String email, String password) {
+        this.name = name;
+        this.apellidos = apellidos;
+        this.email = email;
+        this.password = password;
+    }
 	
 	public String getName() {
 		return name;

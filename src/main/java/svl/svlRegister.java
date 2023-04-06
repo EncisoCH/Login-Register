@@ -28,28 +28,28 @@ public class svlRegister extends HttpServlet {
     	response.setContentType("text/html;charset=UTF-8");
     	response.setCharacterEncoding("UTF-8");
 		
-    	 String nombre = request.getParameter("name");
-    	    String apellido = request.getParameter("apellido");
-    	    String email = request.getParameter("email");
-    	    String password = request.getParameter("password");
+    	String nombre = request.getParameter("name");
+	    String lastname = request.getParameter("lastname");
+	    String email = request.getParameter("email");
+	    String password = request.getParameter("password");
 
-    	    usuario usu = new usuario();
-    	    usu.setName(nombre);
-    	    usu.setApellidos(apellido);
-    	    usu.setEmail(email);
-    	    usu.setPassword(password);
+	    usuario usu = new usuario(nombre, lastname, email, password);
+	    usu.setName(nombre);
+	    usu.setApellidos(lastname);
+	    usu.setEmail(email);
+	    usu.setPassword(password);
 
-    	    try {
-    	        RegisterDAO.registerUser(usu);
-    	        request.setAttribute("mensaje", "El e-mail y contraseña fueron guardadas de forma exitosa en el sistema");
-    	        response.sendRedirect("Login.jsp");
-    	    } catch (SQLException e) {
-    	        request.setAttribute("mensaje", "Los datos ingresados no se almacenaron en la base de datos");
-    	        e.printStackTrace();
-    	        RequestDispatcher rd = request.getRequestDispatcher("inicio.jsp");
-    	        rd.forward(request, response);
-    	    }
-    	}
+	    try {
+	        RegisterDAO.registerUser(usu);
+	        request.setAttribute("mensaje", "El e-mail y contraseña fueron guardadas de forma exitosa en el sistema");
+	        response.sendRedirect("Login.jsp");
+	    } catch (SQLException e) {
+	        request.setAttribute("mensaje", "Los datos ingresados no se almacenaron en la base de datos");
+	        e.printStackTrace();
+	        RequestDispatcher rd = request.getRequestDispatcher("inicio.jsp");
+	        rd.forward(request, response);
+	    }
+	}
 	
     
     
