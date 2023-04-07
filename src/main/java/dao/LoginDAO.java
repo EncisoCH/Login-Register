@@ -55,5 +55,15 @@ public class LoginDAO {
 		return usuario;
 	}
 	
+	
+	public static void changePass(String email, String password) throws SQLException {
+        Connection con = dbConexion.getConexion();
+        PreparedStatement st = con.prepareStatement("UPDATE Usuario SET password=? WHERE email=?");
+        st.setString(1, password);
+        st.setString(2, email);
+        st.executeUpdate();
+        con.close();
+    }
+	
 }
 	
