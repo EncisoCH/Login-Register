@@ -44,6 +44,7 @@ public class svlLogin extends HttpServlet {
 			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("inicio.jsp");
+			session.setAttribute("email", email);
 		}
 	}
     

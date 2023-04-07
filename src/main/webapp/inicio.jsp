@@ -19,6 +19,13 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>Login #3</title>
+    
+    <script type="text/javascript">
+		window.onbeforeunload = function() {
+			return "¿Estás seguro que deseas salir?";
+		}
+	</script>
+	
   </head>
   <body>
   
@@ -32,10 +39,20 @@
           <div class="col-md-6">
             <div class="form-block">
               <div class="text-center mb-5">
-              <h3><strong>BIENVENIDO</strong></h3>
-              <!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
+								<h3>
+									<strong>BIENVENIDO</strong>
+								</h3>
+								<div>
+									<br>
+									<br>
+									<h2>
+										Bienvenido a la página de inicio, tu correo es <span
+											style="font-weight: bold"><%= session.getAttribute("email") %></span>!
+									</h2>
+								</div>
+								<!-- <p class="mb-4">Lorem ipsum dolor sit amet elit. Sapiente sit aut eos consectetur adipisicing.</p> -->
               </div>
-              <form action="#" method="post">
+              <form action="Login.jsp" method="post">
                 <div class="form-group first">
                  
                 </div>
