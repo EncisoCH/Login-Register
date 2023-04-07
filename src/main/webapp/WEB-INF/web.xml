@@ -19,7 +19,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-
   <servlet>
     <description></description>
     <display-name>svlRegister</display-name>
@@ -29,5 +28,15 @@
   <servlet-mapping>
     <servlet-name>svlRegister</servlet-name>
     <url-pattern>/svlRegister</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>svlPassword</display-name>
+    <servlet-name>svlPassword</servlet-name>
+    <servlet-class>svl.svlPassword</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>svlPassword</servlet-name>
+    <url-pattern>/svlPassword</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -56,10 +56,30 @@
                 <div class="form-group first">
                  
                 </div>
+                
+                <div>
+						<p>
+							<%
+							String resultado = (String) request.getAttribute("mensaje");
+							String mensaje = "";
+							if (resultado != null) {
+								mensaje = resultado;
+							}
+							%>
+							<%=mensaje%>
+						</p>
+					</div>
 
                 <input type="submit" value="REGRESAR PAGINA DE LOGUEO" class="btn btn-block btn-primary">
-
               </form>
+              
+               <form action="Password.jsp" method="post">
+                <div class="form-group first">
+                 
+                </div>
+
+                <input type="submit" value="CAMBIAR CONTRASEÑA" class="btn btn-block btn-primary">
+                </form>
             </div>
           </div>
         </div>

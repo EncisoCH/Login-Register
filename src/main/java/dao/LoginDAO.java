@@ -9,12 +9,12 @@ import db.dbConexion;
 
 public class LoginDAO {
 	
-
+	Connection cn = null;
+	PreparedStatement ps = null;
+	ResultSet rs = null;
+	
 	public usuario logueo(String email, String password) {
 		usuario usuario = null;
-		Connection cn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
 		
 		try {
 			// Obtener la conexión a la base de datos
@@ -56,14 +56,43 @@ public class LoginDAO {
 	}
 	
 	
-	public static void changePass(String email, String password) throws SQLException {
-        Connection con = dbConexion.getConexion();
-        PreparedStatement st = con.prepareStatement("UPDATE Usuario SET password=? WHERE email=?");
-        st.setString(1, password);
-        st.setString(2, email);
-        st.executeUpdate();
-        con.close();
-    }
+	public boolean cambiarContraseña(String email, String passwordActual, String newPass) {
+		
+		boolean resultado = false;
+		
+	    try {
+	        // Obtener la conexión a la base de datos
+	        cn = dbConexion.getConexion();
+
+	        // Actualizar la contraseña del usuario
+	        String sql = "UPDATE Usuario SET password = ? WHERE email = ?";
+	        ps = cn.prepareStatement(sql);
+	        ps.setString(1, newPass);
+	        ps.setString(2, email);
+	        int filasAct = ps.executeUpdate();
+
+	        if (filasAct == 1) {
+	            resultado = true;
+	        }
+
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (ps != null) {
+	                ps.close();
+	            }
+
+	            if (cn != null) {
+	                cn.close();
+	            }
+	        } catch (Exception e2) {
+	            e2.printStackTrace();
+	        }
+	    }
+
+	    return resultado;
+	}
 	
 }
 	
