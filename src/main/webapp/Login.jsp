@@ -13,10 +13,14 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/main_rl.js"></script>
+
+
 </head>
 <body>
 
-    <div class="main">
+
+	<div class="main">
 
         <!-- Sing in  Form -->
         <section class="sign-in">
@@ -51,10 +55,9 @@
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="password" placeholder="Password"/>
                             </div>
-                            <div class="form-group">
-                                <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
-                                <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
-                            </div>
+							<div class="signup-link">
+								<a href="#" class="signup-link" data-toggle="forgotpassword" data-target="#ForgotPass">Forgot Password</a>
+							</div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                             </div>
@@ -76,6 +79,6 @@
 
     <!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="js/main_rl.js"></script>
+	
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 </html>

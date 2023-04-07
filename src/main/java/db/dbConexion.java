@@ -6,20 +6,20 @@ import java.sql.SQLException;
 
 public class dbConexion {
 
-	private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+	private static final String _JDBC = "com.mysql.jdbc.Driver";
 	private static final String _URL = "jdbc:mysql://localhost:3306/Login";
-	private static final String USER = "root";
-	private static final String PASSWORD = "";
+	private static final String _USER = "root";
+	private static final String _PASSWORD = "";
 
 	public static Connection getConexion() {
-	    Connection conn = null;
+	    Connection cn = null;
 	    
 	    try {
 	        // Register JDBC driver
-	        Class.forName(JDBC_DRIVER);
+	        Class.forName(_JDBC);
 
 	        // Open a connection
-	        conn = DriverManager.getConnection(_URL, USER, PASSWORD);
+	        cn = DriverManager.getConnection(_URL, _USER, _PASSWORD);
 
 	        System.out.println("Connection successful");
 	    } catch (SQLException se) {
@@ -32,6 +32,6 @@ public class dbConexion {
 	        e.printStackTrace();
 	    }
 
-	    return conn;
+	    return cn;
 	}
 }

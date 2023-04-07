@@ -29,24 +29,39 @@ public class svlRegister extends HttpServlet {
     	response.setCharacterEncoding("UTF-8");
 		
     	String nombre = request.getParameter("name");
-	    String lastname = request.getParameter("lastname");
+	    String apellido = request.getParameter("apellido");
 	    String email = request.getParameter("email");
 	    String password = request.getParameter("password");
+	    
+	    if (nombre == null || nombre.isEmpty() || 
+	    	apellido == null || apellido.isEmpty() || 
+	    	email == null || email.isEmpty() || 
+	    	password == null || password.isEmpty()) {
+	    	
+	        // Redirigir al usuario a la página de registro con mensaje de error
+	        request.setAttribute("mensaje", "Todos los campos son obligatorios");
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("Register.jsp");
+	        dispatcher.forward(request, response);
+	        return;
+	    }
 
-	    usuario usu = new usuario(nombre, lastname, email, password);
+	    usuario usu = new usuario(nombre, apellido, email, password);
 	    usu.setName(nombre);
-	    usu.setApellidos(lastname);
+	    usu.setApellidos(apellido);
 	    usu.setEmail(email);
 	    usu.setPassword(password);
 
 	    try {
 	        RegisterDAO.registerUser(usu);
-	        request.setAttribute("mensaje", "El e-mail y contraseña fueron guardadas de forma exitosa en el sistema");
-	        response.sendRedirect("Login.jsp");
+	        request.setAttribute("mensaje", "Tus datos fueron alamacenados exitosamente");
+	        request.setAttribute("registroExitoso", true);
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("Register.jsp");
+	        dispatcher.forward(request, response);
 	    } catch (SQLException e) {
-	        request.setAttribute("mensaje", "Los datos ingresados no se almacenaron en la base de datos");
+	        request.setAttribute("mensaje", "Los datos ingresados no se almacenaron dentro de la base de datos");
 	        e.printStackTrace();
-	        RequestDispatcher rd = request.getRequestDispatcher("inicio.jsp");
+	        request.setAttribute("registroFallido", true);
+	        RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
 	        rd.forward(request, response);
 	    }
 	}

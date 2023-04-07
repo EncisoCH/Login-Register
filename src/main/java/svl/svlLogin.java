@@ -40,8 +40,8 @@ public class svlLogin extends HttpServlet {
 		usuario us = log.logueo(email, password);
 
 		if (us == null) {
-			request.setAttribute("mensaje", "Error nombre de usuario y/o clave");
-			request.getRequestDispatcher("Register.jsp").forward(request, response);
+			request.setAttribute("mensaje", "Error nombre de usuario y/o clave. Vuelva a intentarlo");
+			request.getRequestDispatcher("Login.jsp").forward(request, response);
 		} else {
 			response.sendRedirect("inicio.jsp");
 		}

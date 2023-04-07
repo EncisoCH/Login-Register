@@ -14,6 +14,10 @@ public class usuario {
         this.password = password;
     }
 	
+	public usuario() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getName() {
 		return name;
 	}
