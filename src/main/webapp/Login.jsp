@@ -55,9 +55,6 @@
                                 <label for="password"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="password" id="password" placeholder="Password"/>
                             </div>
-							<div class="signup-link">
-								<a href="#" class="signup-link" data-toggle="forgotpassword" data-target="#ForgotPass">Forgot Password</a>
-							</div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
                             </div>

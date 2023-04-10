@@ -22,7 +22,7 @@
 				<div class="signup-content">
 					<div class="signup-form">
 						<h2 class="form-title">Sign up</h2>
-						<form action="svlRegister" method="post" class="register-form">
+						<form action="svlRegister" method="post" class="register-form" onsubmit="return validarCondiciones()">
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
@@ -31,7 +31,7 @@
 							<div class="form-group">
 								<label for="apellido"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="apellido" name="apellido" id="apellido"
+									type="text" name="apellido" id="apellido"
 									placeholder="Your Last Name" />
 							</div>
 							<div class="form-group">
@@ -78,8 +78,20 @@
 			</div>
 		</section>
 	</div>
-    
-    	<!-- JS -->
+
+    <!------- ACEPTAR TERMINOS Y CONDICIONES ------->
+	<script>
+		function validarCondiciones() {
+			var checkbox = document.getElementById("agree-term");
+			if (!checkbox.checked) {
+				alert("Es esencial aceptar los terminos y condiciones.");
+				return false;
+			}
+			return true;
+		}
+	</script>
+
+	<!-- JS -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="js/main_rl.js"></script>
     

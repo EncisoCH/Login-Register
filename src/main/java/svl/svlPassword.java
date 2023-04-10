@@ -40,11 +40,11 @@ public class svlPassword extends HttpServlet {
     	if (resultado) {
     	    String mensaje = "Se ha actualizado la contraseña de manera exitosa - Por favor inicia sesión";
     	    request.setAttribute("mensaje", mensaje);
-    	    request.getRequestDispatcher("Login.jsp").forward(request, response);
+    	    response.sendRedirect("Login.jsp");
     	} else {
     	    String mensaje = "Error al ingresar el e-mail y contraseña";
     	    request.setAttribute("mensaje", mensaje);
-    	    request.getRequestDispatcher("password.jsp").forward(request, response);
+    	    response.sendRedirect("password.jsp");
     	}
     }
 		

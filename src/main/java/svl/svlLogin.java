@@ -41,7 +41,7 @@ public class svlLogin extends HttpServlet {
 
 		if (us == null) {
 			request.setAttribute("mensaje", "Error nombre de usuario y/o clave. Vuelva a intentarlo");
-			request.getRequestDispatcher("Login.jsp").forward(request, response);
+			response.sendRedirect("Login.jsp");
 		} else {
 			response.sendRedirect("inicio.jsp");
 			session.setAttribute("email", email);

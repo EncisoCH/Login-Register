@@ -55,14 +55,12 @@ public class svlRegister extends HttpServlet {
 	        RegisterDAO.registerUser(usu);
 	        request.setAttribute("mensaje", "Tus datos fueron alamacenados exitosamente");
 	        request.setAttribute("registroExitoso", true);
-	        RequestDispatcher dispatcher = request.getRequestDispatcher("Register.jsp");
-	        dispatcher.forward(request, response);
+	        response.sendRedirect("Register.jsp");
 	    } catch (SQLException e) {
 	        request.setAttribute("mensaje", "Los datos ingresados no se almacenaron dentro de la base de datos");
 	        e.printStackTrace();
 	        request.setAttribute("registroFallido", true);
-	        RequestDispatcher rd = request.getRequestDispatcher("Register.jsp");
-	        rd.forward(request, response);
+	        response.sendRedirect("Register.jsp");
 	    }
 	}
 	
